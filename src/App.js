@@ -5,7 +5,7 @@ import { useState } from "react";
 const fake = [
   { id: 1, body: "우유 구입", completed: false },
   { id: 2, body: "과제 제출", completed: false },
-  { id: 3, body: "시험 공부", completed: false }
+  { id: 3, body: "시험 준비", completed: false }
 ];
 
 function App() {
@@ -38,13 +38,23 @@ function App() {
     setTodoList(updatedTodoList);
   };
 
+  const updateTodo = (id, newBody) => {
+    const updatedTodoList = todoList.map(todo => {
+      if (todo.id === id) {
+        return { ...todo, body: newBody };
+      }
+      return todo;
+    });
+    setTodoList(updatedTodoList);
+  };
+
   return (
     <Container>
       <form onSubmit={appendTodo}>
         <TodoInput value={inputString} onChange={handleInput} />
         <button type="submit">추가</button>
       </form>
-      <TodoList todoList={todoList} handleDelete={handleDelete} toggleComplete={toggleComplete} />
+      <TodoList todoList={todoList} handleDelete={handleDelete} toggleComplete={toggleComplete} updateTodo={updateTodo} />
     </Container>
   );
 }
@@ -63,4 +73,3 @@ const TodoInput = styled.input`
   margin: 100px;
   border-radius: 10px;
 `;
-//upload test

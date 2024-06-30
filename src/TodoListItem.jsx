@@ -1,12 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 
-const TodoListItem = ({ id, body, handleDelete, toggleComplete, completed }) => {
+const TodoListItem = ({ id, body, handleDelete, toggleComplete, updateTodo, completed }) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [editText, setEditText] = useState(body);
+
+  const handleEditChange = (event) => {
+    setEditText(event.target.value);
+  };
+
+  const handleSave = () => {
+    updateTodo(id, editText);
+    setIsEditing(false);
+  };
+
   return (
     <Box completed={completed}>
-      <p>{body}</p>
-      <button onClick={() => toggleComplete(id)}>완료</button>
-      <button onClick={() => handleDelete(id)}>삭제</button>
+      {isEditing ? (
+        <>
+          <input type="text" value={editText} onChange={handleEditChange} />
+          <button onClick={handleSave}>저장</button>
+        </>
+      ) : (
+        <>
+          <p>{body}</p>
+          <button onClick={() => setIsEditing(true)}>수정</button>
+          <button onClick={() => toggleComplete(id)}>완료</button>
+          <button onClick={() => handleDelete(id)}>삭제</button>
+        </>
+      )}
     </Box>
   );
 };
