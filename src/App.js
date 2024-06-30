@@ -3,9 +3,9 @@ import TodoList from "./TodoList";
 import { useState } from "react";
 
 const fake = [
-  { id: 1, body: "우유 사기", completed: false },
-  { id: 2, body: "공부 하기", completed: false },
-  { id: 3, body: "집 가고 싶다", completed: false }
+  { id: 1, body: "우유 구입", completed: false },
+  { id: 2, body: "과제 제출", completed: false },
+  { id: 3, body: "시험 공부", completed: false }
 ];
 
 function App() {
