@@ -1,2 +1,2 @@
 # preparing_hackathon
-Creating "Todolist" app for recapitulate
+Creating "Todolist" app to recapitulate what has been learned so far
