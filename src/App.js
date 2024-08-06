@@ -65,7 +65,7 @@ function App() {
     <div className="container">
       <form className="form-container" onSubmit={appendTodo}>
         <input className="todo-input" value={inputString} onChange={handleInput} />
-        <button className="add-button" type="submit">Add</button>
+        <button className="add-button" type="submit">Add!</button>
       </form>
       <div className="search-container">
         <input className="search-input" value={searchString} onChange={handleSearchInput} placeholder="검색" />
