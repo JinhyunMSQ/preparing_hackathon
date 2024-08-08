@@ -11,6 +11,7 @@ const fake = [
 function App() {
   const [todoList, setTodoList] = useState(fake);
   const [inputString, setInputString] = useState("");
+  const [searchString, setSearchString] = useState("");
 
   const appendTodo = (event) => {
     event.preventDefault();
@@ -21,6 +22,10 @@ function App() {
 
   const handleInput = (event) => {
     setInputString(event.target.value);
+  };
+
+  const handleSearchInput = (event) => {
+    setSearchString(event.target.value);
   };
 
   const handleDelete = (id) => {
@@ -48,13 +53,19 @@ function App() {
     setTodoList(updatedTodoList);
   };
 
+  const filteredTodoList = todoList.filter(todo => todo.body.includes(searchString));
+
   return (
     <Container>
       <form onSubmit={appendTodo}>
         <TodoInput value={inputString} onChange={handleInput} />
         <button type="submit">추가</button>
       </form>
-      <TodoList todoList={todoList} handleDelete={handleDelete} toggleComplete={toggleComplete} updateTodo={updateTodo} />
+      <SearchContainer>
+        <SearchInput value={searchString} onChange={handleSearchInput} placeholder="검색" />
+        <SearchButton>검색</SearchButton>
+      </SearchContainer>
+      <TodoList todoList={filteredTodoList} handleDelete={handleDelete} toggleComplete={toggleComplete} updateTodo={updateTodo} />
     </Container>
   );
 }
@@ -72,4 +83,24 @@ const TodoInput = styled.input`
   height: 32px;
   margin: 100px;
   border-radius: 10px;
+`;
+
+const SearchContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 0;
+`;
+
+const SearchInput = styled.input`
+  width: 200px;
+  height: 32px;
+  margin-right: 10px;
+  border-radius: 10px;
+  padding: 0 10px;
+`;
+
+const SearchButton = styled.button`
+  height: 32px;
+  border-radius: 10px;
+  padding: 0 15px;
 `;
