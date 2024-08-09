@@ -57,10 +57,10 @@ function App() {
 
   return (
     <Container>
-      <form onSubmit={appendTodo}>
+      <FormContainer onSubmit={appendTodo}>
         <TodoInput value={inputString} onChange={handleInput} />
-        <button type="submit">추가</button>
-      </form>
+        <AddButton type="submit">추가</AddButton>
+      </FormContainer>
       <SearchContainer>
         <SearchInput value={searchString} onChange={handleSearchInput} placeholder="검색" />
         <SearchButton>검색</SearchButton>
@@ -78,11 +78,24 @@ const Container = styled.div`
   margin: auto;
 `;
 
-const TodoInput = styled.input`
-  width: 100%;
-  height: 32px;
+const FormContainer = styled.form`
+  display: flex;
+  align-items: center;
   margin: 100px;
+`;
+
+const TodoInput = styled.input`
+  flex: 1;
+  height: 32px;
   border-radius: 10px;
+  margin-right: 10px;
+  padding: 0 10px;
+`;
+
+const AddButton = styled.button`
+  height: 32px;
+  border-radius: 10px;
+  padding: 0 15px;
 `;
 
 const SearchContainer = styled.div`
