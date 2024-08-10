@@ -1,0 +1,46 @@
+.container {
+    width: 70%;
+    height: 100vh;
+    margin: auto;
+  }
+  
+  .form-container {
+    display: flex;
+    align-items: center;
+    margin: 100px;
+  }
+  
+  .todo-input {
+    flex: 1;
+    height: 32px;
+    border-radius: 10px;
+    margin-right: 10px;
+    padding: 0 10px;
+  }
+  
+  .add-button {
+    height: 32px;
+    border-radius: 10px;
+    padding: 0 15px;
+  }
+  
+  .search-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
+  }
+  
+  .search-input {
+    width: 200px;
+    height: 32px;
+    margin-right: 10px;
+    border-radius: 10px;
+    padding: 0 10px;
+  }
+  
+  .search-button {
+    height: 32px;
+    border-radius: 10px;
+    padding: 0 15px;
+  }
+  

@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import React, { useState } from "react";
 import TodoList from "./TodoList";
-import { useState } from "react";
+import './App.css';
 
 const fake = [
   { id: 1, body: "우유 구입", completed: false },
@@ -56,64 +56,18 @@ function App() {
   const filteredTodoList = todoList.filter(todo => todo.body.includes(searchString));
 
   return (
-    <Container>
-      <FormContainer onSubmit={appendTodo}>
-        <TodoInput value={inputString} onChange={handleInput} />
-        <AddButton type="submit">추가</AddButton>
-      </FormContainer>
-      <SearchContainer>
-        <SearchInput value={searchString} onChange={handleSearchInput} placeholder="검색" />
-        <SearchButton>검색</SearchButton>
-      </SearchContainer>
+    <div className="container">
+      <form className="form-container" onSubmit={appendTodo}>
+        <input className="todo-input" value={inputString} onChange={handleInput} />
+        <button className="add-button" type="submit">추가</button>
+      </form>
+      <div className="search-container">
+        <input className="search-input" value={searchString} onChange={handleSearchInput} placeholder="검색" />
+        <button className="search-button">검색</button>
+      </div>
       <TodoList todoList={filteredTodoList} handleDelete={handleDelete} toggleComplete={toggleComplete} updateTodo={updateTodo} />
-    </Container>
+    </div>
   );
 }
 
 export default App;
-
-const Container = styled.div`
-  width: 70%;
-  height: 100vh;
-  margin: auto;
-`;
-
-const FormContainer = styled.form`
-  display: flex;
-  align-items: center;
-  margin: 100px;
-`;
-
-const TodoInput = styled.input`
-  flex: 1;
-  height: 32px;
-  border-radius: 10px;
-  margin-right: 10px;
-  padding: 0 10px;
-`;
-
-const AddButton = styled.button`
-  height: 32px;
-  border-radius: 10px;
-  padding: 0 15px;
-`;
-
-const SearchContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  margin: 10px 0;
-`;
-
-const SearchInput = styled.input`
-  width: 200px;
-  height: 32px;
-  margin-right: 10px;
-  border-radius: 10px;
-  padding: 0 10px;
-`;
-
-const SearchButton = styled.button`
-  height: 32px;
-  border-radius: 10px;
-  padding: 0 15px;
-`;
