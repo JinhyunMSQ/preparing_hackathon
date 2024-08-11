@@ -15,6 +15,12 @@ function App() {
 
   const appendTodo = (event) => {
     event.preventDefault();
+
+    // 입력이 비어있으면 추가하지 않음
+    if (inputString.trim() === "") {
+      return;
+    }
+
     const newTodo = [...todoList, { id: Date.now(), body: inputString, completed: false }];
     setTodoList(newTodo);
     setInputString('');
