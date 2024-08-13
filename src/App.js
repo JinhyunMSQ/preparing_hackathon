@@ -3,9 +3,9 @@ import TodoList from "./TodoList";
 import './App.css';
 
 const fake = [
-  { id: 1, body: "우유 구입", completed: false },
+  { id: 1, body: "책 대출", completed: false },
   { id: 2, body: "과제 제출", completed: false },
-  { id: 3, body: "시험 준비", completed: false }
+  { id: 3, body: "볼펜 구입", completed: false }
 ];
 
 function App() {
