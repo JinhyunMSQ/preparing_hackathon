@@ -24,9 +24,9 @@ const TodoListItem = ({ id, body, handleDelete, toggleComplete, updateTodo, comp
       ) : (
         <>
           <p>{body}</p>
-          <button onClick={() => setIsEditing(true)}>수정</button>
-          <button onClick={() => handleDelete(id)}>삭제</button>
-          <button onClick={() => toggleComplete(id)}>완료</button>
+          <button onClick={() => setIsEditing(true)}>Edit</button>
+          <button onClick={() => handleDelete(id)}>Delete</button>
+          <button onClick={() => toggleComplete(id)}>Complete</button>
         </>
       )}
     </Box>
