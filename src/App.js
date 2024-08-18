@@ -69,7 +69,7 @@ function App() {
       </form>
       <div className="search-container">
         <input className="search-input" value={searchString} onChange={handleSearchInput} placeholder="검색" />
-        <button className="search-button">검색</button>
+        <button className="search-button">Search</button>
       </div>
       <TodoList todoList={filteredTodoList} handleDelete={handleDelete} toggleComplete={toggleComplete} updateTodo={updateTodo} />
     </div>
